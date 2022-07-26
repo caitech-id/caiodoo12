@@ -1,0 +1,31 @@
+version: '2'
+services:
+  web:
+    image: odoo:12
+    container_name: "cai12"
+    depends_on:
+      - db
+    ports:
+      - "8012:8069"
+    restart: always
+    volumes:
+      - web_data12:/var/lib/odoo
+      - ./config:/etc/odoo
+      - ./caiaddon:/mnt/caiaddon
+      - ./caiproject:/mnt/caiproject
+  db:
+    image: postgres:9.5
+    container_name: "pg95-odoo12"
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=odoo
+      - POSTGRES_USER=odoo
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    ports:
+    - "5445:5432"
+    restart: always
+    volumes:
+      - db_data12:/var/lib/postgresql/data/pgdata
+volumes:
+  web_data12:
+  db_data12:
