@@ -11,7 +11,7 @@ services:
     volumes:
       - web_data12:/var/lib/odoo
       - ./config:/etc/odoo
-      - ./caiaddon:/mnt/caiaddon
+      - ../caiaddon:/mnt/caiaddon
       - ./caiproject:/mnt/caiproject
   db:
     image: postgres:9.5
