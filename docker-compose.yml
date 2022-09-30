@@ -2,7 +2,7 @@ version: '2'
 services:
   web:
     image: odoo:12
-    container_name: "cai12"
+    container_name: "baja12"
     depends_on:
       - db
     ports:
@@ -15,7 +15,7 @@ services:
       - ./caiproject:/mnt/caiproject
   db:
     image: postgres:9.5
-    container_name: "pg95-odoo12"
+    container_name: "pg95-baja"
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_PASSWORD=odoo

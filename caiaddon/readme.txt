@@ -1,1 +1,0 @@
-untuk module standar cai
